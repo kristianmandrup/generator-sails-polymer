@@ -1,7 +1,7 @@
 {
   "name": "generator-sails-polymer",
   "version": "0.0.0",
-  "description": "Yeoman generator",
+  "description": "A Yeoman generator for a basic Sails.js + Polymer web app",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "eitak/generator-sails-polymer",

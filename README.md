@@ -1,3 +1,3 @@
 # generator-sails-polymer
 
-> [Yeoman](http://yeoman.io) generator for a basic Sail.js + Polymer web app
+> A [Yeoman](http://yeoman.io) generator for a basic Sails.js + Polymer web app
