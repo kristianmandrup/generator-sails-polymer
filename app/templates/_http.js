@@ -1,5 +1,5 @@
-var express = require('express'),
-  swagger = require('swagger-express');
+var express = require('express')<% if (!includeSwagger) { %>;<% } else { %>,
+    swagger = require('swagger-express');<% } %>
 
 module.exports.http = {
 
@@ -19,7 +19,7 @@ module.exports.http = {
       swaggerURL: '/swagger',
       swaggerJSON: '/docs',
       swaggerUI: process.cwd() + '/public/swagger/',
-      basePath: 'http://localhost:1337',
+      basePath: process.env.URL,
       info: {
         title: 'Swagger'
       },

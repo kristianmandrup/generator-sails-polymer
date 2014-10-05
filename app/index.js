@@ -45,7 +45,6 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
       this.appName = props.appName;
       this.version = props.version;
       this.elementPrefix = props.elementPrefix;
-      console.log(props);
       this.includeSwagger = props.includeSwagger;
 
       done();
@@ -62,6 +61,11 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
       this.directory('config');
       this.directory('test');
       this.directory('public');
+
+      if (this.includeSwagger) {
+        this.directory('swagger', 'public/swagger');
+        this.template('_swaggerindex.html', 'public/swagger/index.html');
+      }
 
       this.src.copy('_Gruntfile.js', 'Gruntfile.js');
       this.src.copy('_app.js', 'app.js');
