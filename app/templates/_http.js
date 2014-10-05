@@ -8,7 +8,7 @@ module.exports.http = {
     /*
      * Static files
      */
-    app.use(express.static(process.cwd() + '/public'));
+    app.use(express.static(process.cwd() + '/public'));<% if (includeSwagger) { %>
 
     /*
      * Set up swagger
@@ -30,7 +30,8 @@ module.exports.http = {
          */
       ],
       middleware: function () {}
-    }));
+    }));<% } %>
+
   }
 
 };

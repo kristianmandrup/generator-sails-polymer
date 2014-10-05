@@ -18,8 +18,8 @@
     "bower": "^1.3.12",
     "express": "^4.9.5",
     "sails": "^0.10.5",
-    "sails-disk": "^0.10.4",
-    "sails-mongo": "^0.10.4",
-    "swagger-express": "^1.0.5"
+    "sails-disk": "^0.10.4",<% if (includeSwagger) { %>
+    "swagger-express": "^1.0.5",<% } %>
+    "sails-mongo": "^0.10.4"
   }
 }

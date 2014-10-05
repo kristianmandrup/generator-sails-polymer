@@ -17,17 +17,27 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
     var prompts = [
       {
         name: 'appName',
-        message: 'App name:'
+        type: 'input',
+        message: 'App name:',
+        default: 'my-super-app'
       },
       {
         name: 'version',
+        type: 'input',
         message: 'App version:',
         default: '0.0.1'
       },
       {
         name: 'elementPrefix',
+        type: 'input',
         message: 'Element prefix:',
         default: 'app'
+      },
+      {
+        name: 'includeSwagger',
+        type: 'confirm',
+        message: 'Include setup for Swagger documentation:',
+        default: 'Yes'
       }
     ];
 
@@ -35,6 +45,8 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
       this.appName = props.appName;
       this.version = props.version;
       this.elementPrefix = props.elementPrefix;
+      console.log(props);
+      this.includeSwagger = props.includeSwagger;
 
       done();
     }.bind(this));
@@ -56,6 +68,7 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
 
       this.template('_package.json', 'package.json');
       this.template('_bower.json', 'bower.json');
+      this.template('_http.js', 'config/http.js');
 
       var self = this;
       function copyElement (elementName) {
