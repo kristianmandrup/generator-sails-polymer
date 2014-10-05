@@ -1,0 +1,25 @@
+{
+  "name": "<%= appName %>",
+  "version": "<%= version %>",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "./node_modules/.bin/grunt grunt test",
+    "postinstall": "./node_modules/.bin/bower install"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "grunt": "^0.4.5",
+    "grunt-mocha-test": "^0.12.1",
+    "grunt-nodemon": "^0.3.0",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "bower": "^1.3.12",
+    "express": "^4.9.5",
+    "sails": "^0.10.5",
+    "sails-disk": "^0.10.4",
+    "sails-mongo": "^0.10.4",
+    "swagger-express": "^1.0.5"
+  }
+}

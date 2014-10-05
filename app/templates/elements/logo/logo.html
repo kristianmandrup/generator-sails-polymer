@@ -1,0 +1,14 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="<%= elementPrefix %>-logo">
+  <template>
+    <link rel="import" href="../../bower_components/font-roboto/roboto.html">
+    <link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<%= elementPrefix %>-logo.css">
+    <i class="fa fa-sun-o"></i> <%= appName %>
+  </template>
+</polymer-element>
+
+<script>
+  Polymer('<%= elementPrefix %>-logo', {});
+</script>

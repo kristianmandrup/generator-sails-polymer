@@ -1,0 +1,31 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../<%= elementPrefix %>-logo/<%= elementPrefix %>-logo.html">
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+<style>
+  @font-face {
+    font-family: 'FontAwesome';
+    src: url('/bower_components/components-font-awesome/fonts/fontawesome-webfont.eot?v=4.0.3');
+    src: url('/bower_components/components-font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('/bower_components/components-font-awesome/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('/bower_components/components-font-awesome/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('/bower_components/components-font-awesome/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
+
+<polymer-element name="<%= elementPrefix %>-main">
+  <template>
+    <link rel="stylesheet" href="<%= elementPrefix %>-main.css">
+    <core-header-panel>
+      <core-toolbar>
+        <a href="/"><<%= elementPrefix %>-logo></<%= elementPrefix %>-logo></a>
+      </core-toolbar>
+      <content></content>
+    </core-header-panel>
+  </template>
+</polymer-element>
+
+<script>
+  Polymer('<%= elementPrefix %>-main', {});
+</script>
