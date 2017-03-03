@@ -1,6 +1,6 @@
 {
   "name": "generator-sails-polymer2",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Yeoman generator for a basic Sails 1 and Polymer 2 web app",
   "license": "MIT",
   "main": "app/index.js",
@@ -22,14 +22,12 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^1.1.0",
     "chalk": "^1.1.0",
+    "string": "^3.3.3",
+    "yeoman-generator": "^1.1.0",
     "yosay": "^2.0.0"
   },
   "devDependencies": {
     "mocha": "*"
-  },
-  "peerDependencies": {
-    "yo": ">=1.8.0"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "<%= appName %>",
+  "name": "<%= appNameDash %>",
   "version": "<%= version %>",
   "main": "app.js",
   "scripts": {
@@ -12,15 +12,14 @@
     "grunt": "^1.0.1",
     "grunt-mocha-test": "^0.13.2",
     "grunt-nodemon": "^0.4.2",
-    "mocha": "^3.2.0",
-    "swagger-ui": "^2.2.10"
+    "mocha": "^3.2.0"
   },
   "dependencies": {
     "bower": "^1.8.0",
     "express": "^4.15",
-    "sails": "^1.0.0",
-    "sails-disk": "^0.10.10",<% if (includeSwagger) { %>
-    "swagger-express": "^1.0.5",<% } %>
-    "sails-mongo": "^0.12.2"
+    "sails": "balderdashy/sails#master",<% for (let adapter of waterlineORMs) { %>
+    "sails-<%= adapter %>": "balderdashy/sails-<%= adapter %>#master",<% } %><% if (includeSwagger) { %>
+    "swagger-express": "^1.0.5",
+    "swagger-ui-express": "^1.0.4"<% } %>
   }
 }
