@@ -1,13 +1,13 @@
 {
-  "name": "generator-sails-polymer",
+  "name": "generator-sails-polymer2",
   "version": "0.0.0",
-  "description": "A Yeoman generator for a basic Sails.js + Polymer web app",
+  "description": "A Yeoman generator for a basic Sails 1 and Polymer 2 web app",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "eitak/generator-sails-polymer",
+  "repository": "kristianmandrup/generator-sails-polymer",
   "author": {
-    "name": "eitak",
-    "url": "https://github.com/eitak"
+    "name": "Kristian Mandrup",
+    "url": "https://github.com/kristianmandrup"
   },
   "engines": {
     "node": ">=7.0.0"

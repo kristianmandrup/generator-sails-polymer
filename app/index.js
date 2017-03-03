@@ -1,14 +1,22 @@
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
+function has(list, item) {
+  return list.indexOf(item) >= 0;
+}
+
 var SailsPolymerGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
   },
 
-  prompting: function () {
-    var done = this.async();
+  chosenAdapter: (adapter) {
+    return has(this.waterlineORMs, adapter);
+  },
 
+  adapters: ['disk', 'memory', 'mongo', 'mysql', 'postgres', 'redis'],
+
+  prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the marvelous SailsPolymer generator!'
@@ -19,7 +27,7 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
         name: 'appName',
         type: 'input',
         message: 'App name:',
-        default: 'my-super-app'
+        default: 'my-sails-app'
       },
       {
         name: 'version',
@@ -28,26 +36,42 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
         default: '0.0.1'
       },
       {
-        name: 'elementPrefix',
+        name: 'includeSPA',
+        type: 'confirm',
+        message: 'Include Polymer SPA',
+        default: true
+      },
+      {
+        name: 'waterlineORMs',
+        type: 'choice',
+        message: 'Select waterline ORMs',
+        choices: this.adapters,
+        default: ['disk', 'mongo']
+      },
+      {
+        name: 'dbName',
         type: 'input',
-        message: 'Element prefix:',
-        default: 'app'
+        message: 'Main database name',
+        default: 'my-db'
       },
       {
         name: 'includeSwagger',
         type: 'confirm',
         message: 'Include setup for Swagger documentation:',
-        default: 'Yes'
+        default: true
       }
     ];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts).then(props) {
       this.appName = props.appName;
       this.version = props.version;
       this.elementPrefix = props.elementPrefix;
       this.includeSwagger = props.includeSwagger;
+      this.waterlineORMs = waterlineORMs;
 
-      done();
+      for (let adapter of this.adapters) {
+        this[adapter] = chosenAdapter(adapter);
+      }
     }.bind(this));
   },
 
@@ -73,21 +97,12 @@ var SailsPolymerGenerator = yeoman.generators.Base.extend({
       this.template('_package.json', 'package.json');
       this.template('_bower.json', 'bower.json');
       this.template('_http.js', 'config/http.js');
+      this.template('_routes.js', 'config/routes.js');
 
-      var self = this;
-      function copyElement (elementName) {
-        var elementNameWithPrefix = self.elementPrefix + '-' + elementName;
-        var srcDir = 'elements/' + elementName + '/';
-        var targetDir = 'public/elements/' + elementNameWithPrefix + '/';
-
-        self.template(srcDir + elementName + '.css', targetDir + elementNameWithPrefix + '.css');
-        self.template(srcDir + elementName + '.html', targetDir + elementNameWithPrefix + '.html');
+      if (this.includeSPA) {
+        this.src.copy('_views.js', 'config/views.js');
+        this.template('views/_index.html', 'views/index.html');
       }
-
-      copyElement('logo');
-      copyElement('main');
-
-      this.template('views/_index.html', 'views/index.html');
     },
 
     projectfiles: function () {

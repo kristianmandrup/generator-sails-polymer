@@ -1,12 +1,11 @@
 module.exports.routes = {
 
+  <% if (includeSPA) { %>
   /**
    * Views
    */
-
   '/': { view: 'index' }
-
-
+  <% } %>
   /**
    * API routes
    */

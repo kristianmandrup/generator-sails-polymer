@@ -3,14 +3,14 @@
 This is a generator for the Sails server part of a Polymer application.
 
 Install via *npm*
-> npm install -g generator-sails-polymer
+> npm install -g generator-sails-polymer2
 
 Install via *yarn*
-> yarn global add generator-sails-polymer
+> yarn global add generator-sails-polymer2
 
 Invoke the new generator via `yo` command
 
->yo sails-polymer
+>yo sails-polymer2
 
 The generator will take you through the rest of the process.
 
@@ -49,7 +49,9 @@ Sails is configured in the `/config` folder
 *Connections*
 
 The `connections.js` is for Waterline ORM configurations.
-It contains skeleton configurations for:
+See list of [available adapters](http://sailsjs.com/documentation/concepts/extending-sails/adapters/available-adapters)
+
+By default the following adapters are used:
 - [sails-disk](https://www.npmjs.com/package/sails-disk)
 - [sails-mongo](https://www.npmjs.com/package/sails-mongo)
 
@@ -78,15 +80,14 @@ module.exports.models = {
 
 *Http middleware*
 
-The folder `/bower_components` has been added as a static middleware in [Sails assets config](http://sailsjs.com/documentation/concepts/assets). 
-This ensures you can use bower files in your views.
+`bowerrc` is configured to use `public/bower_components` for installation.
+This ensures you can reference bower files in your views.
 
-`index.html` uses the polyfill `webcomponents-lite` is used when web components are not supported by your browser
+`index.html` uses the polyfill `webcomponents-lite` when web components are not supported natively by your browser
 
 `script.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';`
 
 ### Recommendations
-
 The included SPA view `/` route and view `index.html` file is mainly for demonstration/test purposes.
 
 We recommend that for larger projects, you develop the Polymer project on its own as a separate project and that the Sails server is API only, including:
