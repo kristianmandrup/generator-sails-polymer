@@ -46,6 +46,13 @@ gitignore - files patterns to ignore
 jshintrc - jshint configuration
 ```
 
+Please see [Upgrading to Sails 1.0](https://github.com/balderdashy/sails-docs/blob/1.0/upgrading/To1.0.md)
+
+### Warning
+Be sure to read [Don't use sails or waterline](https://kev.inburke.com/kevin/dont-use-sails-or-waterline/) that contains a lot of warnings based on usage experience.
+
+A good alternative until Sails 1.0 is more stable: [AdonisJS](http://www.adonisjs.com/)
+
 ### TODO
 
 - Swap JsHint with [ESLint](http://eslint.org/)
@@ -55,6 +62,12 @@ jshintrc - jshint configuration
 - [Use Gulp not Grunt](https://www.npmjs.com/package/sails-generate-gulp)
 - Add basic policies and session config
 - ...??
+
+### Actions
+
+*Babel*
+
+Use [Babel grunt config](https://gist.github.com/jodyheavener/27a7258b32a9ef80f2fd) or [sails hook babel](https://github.com/sane/sails-hook-babel)
 
 ### Swagger UI
 
