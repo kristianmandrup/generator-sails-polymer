@@ -23,14 +23,21 @@ Project file structure
 
 ```
 /config - Sails configuration files
-/elements - Polymer elements used in views
+    connections.js - Waterline ORM connections
+    http.js - Swagger middleware config for Express
+    models.js - domain models
+    routes.js - API and SPA view routes
+    views.js - views config
+    ...
+
 /public - Static assets (css etc.)
+    /elements - Polymer elements used in views
 /swagger - Swagger UI files
 /test - Mocha Tests
+
 app.js - starts Sails server
 bower.json - includes client/view dependencies
 Gruntfile.js - Grunt tasks
-http.js - Swagger middleware config for Express
 package.json - Server (and task) dependencies
 swaggerindex.html - Swagger UI entry point
 bowerrc - bower configuration
@@ -38,6 +45,16 @@ ediforconfig - editor configuration
 gitignore - files patterns to ignore
 jshintrc - jshint configuration
 ```
+
+### TODO
+
+- Swap JsHint with [ESLint](http://eslint.org/)
+- Use [ES6 with Babel](https://babeljs.io/)
+- Use new [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express) middleware instead of dated swagger config
+- Use [Ava](https://github.com/avajs/ava) for unit testing
+- [Use Gulp not Grunt](https://www.npmjs.com/package/sails-generate-gulp)
+- Add basic policies and session config
+- ...??
 
 ### Swagger UI
 
